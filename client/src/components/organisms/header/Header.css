@@ -1,0 +1,14 @@
+.ui.borderless.menu {
+  box-shadow: none;
+  flex-wrap: wrap;
+  border-radius: 0;
+  /* padding-left: 0;
+  padding-right: 0; */
+}
+
+/* .custon-nav {
+  flex-wrap: wrap;
+  border-radius: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+} */

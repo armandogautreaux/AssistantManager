@@ -1,0 +1,30 @@
+export const USER_CREATE = 'USER_CREATE';
+export const USER_CREATE_ERROR = 'USER_CREATE_ERROR';
+export const SIGN_IN = 'SIGN_IN';
+export const SIGN_IN_ERROR = 'SIGN_IN_ERROR';
+export const SIGN_OUT = 'SIGN_OUT';
+export const SIGN_OUT_ERROR = 'SIGN_OUT_ERROR';
+export const GET_USER = 'GET_USER';
+export const GET_USER_ERROR = 'GET_USER_ERROR';
+
+export const CREATE_FILE = 'CREATE_FILE';
+export const CREATE_FILE_ERROR = 'CREATE_FILE_ERROR';
+export const FETCH_FILES = 'FETCH_FILES';
+export const FETCH_FILES_ERROR = 'FETCH_FILES_ERROR';
+export const FETCH_FILE = 'FETCH_FILE';
+export const FETCH_FILE_ERROR = 'FETCH_FILE_ERROR';
+export const EDIT_FILE = 'EDIT_FILE';
+export const EDIT_FILE_ERROR = 'EDIT_FILE_ERROR';
+export const DELETE_FILE = 'DELETE_FILE';
+export const DELETE_FILE_ERROR = 'DELETE_FILE_ERROR';
+export const SEARCH_FILE = 'SEARCH_FILE';
+export const SEARCH_FILE_ERROR = 'SEARCH_FILE_ERROR';
+
+export const FETCH_SEARCH = 'FETCH_SEARCH';
+export const FETCH_SEARCH_ERROR = 'FETCH_SEARCH_ERROR';
+export const RESET_SEARCH = 'RESET_SEARCH';
+
+export const SELECT_MENU_ITEM = 'SELECT_MENU_ITEM';
+export const SELECT_SIDEBAR_ITEM = 'SELECT_SIDEBAR_ITEM';
+
+export const LOADING_COMPONENT = 'LOADING_COMPONENT';
