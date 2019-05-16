@@ -1,25 +1,44 @@
-var express = require('express');
-var exphbs = require('express-handlebars');
+const dotenv = require('dotenv');
+dotenv.config();
+//DEPENDENCIES
+const express = require('express');
+const mongoose = require('mongoose');
+const morgan = require('morgan');
+const passport = require('./passport');
+const app = express();
+const routes = require('./routes');
+const cookieParser = require('cookie-parser');
 
-var app = express();
+//PORT
+const PORT = process.env.PORT || 8080;
 
-var PORT = process.env.PORT || 8081;
-var db = require('./models');
+//MIDLEWARE MORGAN
+app.use(morgan('dev'));
+app.use(cookieParser());
 
-// middleware
+//MIDLEWARE - USING EXPRESS INSTEAD OF 'BODYPARSER'
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cookieParser());
 
-// static folder
-app.use(express.static('public'));
+// MONGOOSE CONNECTION
+mongoose.connect(
+  process.env.MONGO_URI || 'mongodb://localhost/legalassistant',
+  { useNewUrlParser: true }
+);
 
-// view engine
-app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
-app.set('view engine', 'handlebars');
+// Passport
+app.use(passport.initialize());
 
-require('./routes/api-routes.js')(app);
-require('./routes/html-routes.js')(app);
+//Serve up static assets (usually on heroku)
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('cliend/build'));
+}
 
+//CIRCULAR DEPENDENCY TO USE ROUTES
+app.use(routes);
+
+//INITIALIZE APP
 app.listen(PORT, function() {
-  console.log('app listening on port: ' + PORT);
+  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 });
